@@ -1,0 +1,41 @@
+This is the source code that runs Contacts Who've Faved (CWF) a Flickr API web
+application that runs on the Google AppEngine (GAE) platform:
+
+It is not quite finished yet.
+
+REQUIREMENTS
+
+If you want to run your own version of CWF, you will need:
+
+* A valid Flickr API key, registered as a web application. Both the API key and
+  the application secret will need to be added to the config.py file.
+
+  If you don't have a Flickr API key, you can get one here:
+
+  http://www.flickr.com/services/api/keys/apply/
+
+* A valid GAE account and a recent version of the GAE SDK for Python (>= 1.2.3)
+  which can be downloaded from:
+
+  http://code.google.com/appengine/downloads.html
+
+* gae-FlickrApp
+
+  http://github.com/straup/gae-flickrapp/tree/master
+
+* gae-APIApp
+
+  http://github.com/straup/gae-APIApp/tree/master
+
+They will need to be installed as follows:
+
+ me @ localhost in /home/me/www/gae-contactswhovefaved
+ 101 ->ls -al
+ total 104
+ drwxr-xr-x  21 asc   staff   714 Sep  7 18:20 .
+ drwxr-xr-x  14 asc   staff   476 Aug 20 07:54 ..
+ drwxr-xr-x  12 asc   staff   408 Sep  7 18:21 .git
+ -rw-r--r--   1 asc   staff    15 May 20 09:06 .gitignore
+ lrwxr-xr-x   1 root  staff    39 Jul  2 23:48 APIApp -> /home/me/python/gae-APIApp/APIApp
+ lrwxr-xr-x   1 root  staff    45 Jul  2 23:48 FlickrApp -> /home/me/python/gae-FlickrApp/FlickrApp
+ ...

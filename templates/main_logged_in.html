@@ -1,0 +1,34 @@
+{% include "inc_head.html" %}
+
+<script type="text/javascript" src="/javascript/jquery.js"></script>
+<script type="text/javascript" src="/javascript/md5.js"></script>
+<script type="text/javascript" src="/javascript/flickrapp-api.js"></script>
+<script type="text/javascript" src="/javascript/cwf.js"></script>
+
+<script type="text/javascript">
+
+  var cwf_args = {
+  	'host' : '{{ host_url }}',
+  	'contacts_crumb' : '{{ contacts_crumb|escape }}',
+  };
+
+  window.cwf = new info.aaronland.cwf.Photos(cwf_args);
+
+  $(document).ready(function(){
+  	window.cwf.status('Fetching your contacts...');
+  	window.cwf.get_contacts();
+  });
+
+</script>
+
+<h2>In the last {{ config.cwf_offset_hours|escape }}  hours <span style="font-weight:100;font-size:small;display:block;color:#ccc;">your contacts have faved these photos</span></h2>
+
+<div id="contacts" style="margin-bottom:100px;">
+  <div id="faves" style="margin-top:40px;"></div>
+
+  <br clear="both" />
+
+  <div id="status"></div>
+</div>
+
+{% include "inc_foot.html" %}
