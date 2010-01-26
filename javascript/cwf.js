@@ -282,7 +282,10 @@ info.aaronland.cwf.Photos.prototype.log = function(msg){
 
 info.aaronland.cwf.Photos.prototype.scrub = function(str, allow_whitespace){
 
-    str = encodeURIComponent(str.trim());
+    str = str.replace(/^\s+/, '');
+    str = str.replace(/\s+$/, '');
+
+    str = encodeURIComponent(str);
 
     if (allow_whitespace){
         str = str.replace(/%20/g, " ");
