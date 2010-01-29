@@ -75,7 +75,15 @@ info.aaronland.cwf.Photos.prototype.get_contacts = function(){
     };
 
     var doThisIfNot = function (rsp){
-	_self.status('Ack! There was a problem finding your contacts with new faves.', 1);
+
+	var msg = 'Ack! There was a problem finding your contacts with new faves.';
+
+	msg += '<div style="margin-top:15px;font-size:small;">';
+	msg += 'The robot squirrels report <q>' + rsp['error']['message'] + '.</q> ';
+	msg += '<a href="/">Would you like to try again?</a>';
+	msg += '</div>';
+
+	_self.status(msg, 1);
 	return;
     };
 
@@ -265,12 +273,14 @@ info.aaronland.cwf.Photos.prototype.status = function(msg, is_error){
     }
 
     if (is_error){
-	msg = '<img src="/images/rainbow.gif" height="100" width="100" align="middle" style="margin-right:40px;" />' + msg;
+	msg = '<img src="/images/rainbow.gif" height="100" width="100" align="middle" style="margin-right:40px;float:left;" />' + msg;
     }
 
     else {
-	msg = '<img src="/images/cat.gif" height="92" width="100" align="middle" style="margin-right:40px;" />' + msg;
+	msg = '<img src="/images/cat.gif" height="92" width="100" align="middle" style="margin-right:40px;float:left;" />' + msg;
     }
+
+    msg += '<br clear="all" />';
 
     $("#status").html(msg);
     return;

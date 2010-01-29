@@ -46,27 +46,27 @@ class Dispatch (cwf.Request, FlickrAppAPI) :
 
 	except Exception, e :
 
-	    self.api_error(999, 'Failed to get any contacts: %s' % e)
+	    self.api_error(1999, 'Failed to get any contacts: %s' % e)
 	    return
 
-        """
-        if rsp['contacts']['total'] == 0:
-            rsp['contacts']['contact'].append({
-                'nsid' : '35034348999@N01',
-                'username' : 'straup',
-                })
+	"""
+	if rsp['contacts']['total'] == 0:
+	    rsp['contacts']['contact'].append({
+		'nsid' : '35034348999@N01',
+		'username' : 'straup',
+		})
 
-            rsp['contacts']['total'] = 1
-        """
+	    rsp['contacts']['total'] = 1
+	"""
 
-        for c in rsp['contacts']['contact'] :
+	for c in rsp['contacts']['contact'] :
 
-            nsid = c['nsid']
-            icon = self.flickr_get_buddyicon(nsid)
+	    nsid = c['nsid']
+	    icon = self.flickr_get_buddyicon(nsid)
 
-            c['buddyicon'] = icon
-            c['hex'] = md5.new(nsid).hexdigest()
-            c['short_hex'] = c['hex'][0:6]
+	    c['buddyicon'] = icon
+	    c['hex'] = md5.new(nsid).hexdigest()
+	    c['short_hex'] = c['hex'][0:6]
 
 	rsp = { 'contacts' : rsp['contacts'] }
 	return self.api_ok(rsp)
@@ -99,10 +99,10 @@ class Dispatch (cwf.Request, FlickrAppAPI) :
 		'auth_token' : self.user.token,
 		'user_id' : user_id,
 		'min_fave_date' : dt,
-                'extras' : 'owner_name',
+		'extras' : 'owner_name',
 		}
 
-            rsp = self.api_call(method, args)
+	    rsp = self.api_call(method, args)
 
 	except Exception, e:
 	    self.api_error(999, 'Failed to get any photos for %s: %s' % (nsid, e));
