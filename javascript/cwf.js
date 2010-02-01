@@ -245,11 +245,13 @@ info.aaronland.cwf.Photos.prototype.display_fave = function(fave){
     html += '/>';
     html += '</a>';
 
+    /*
     if (this.args['is_mobile']){
 	html += '<div style="margin-top:8px;margin-left:' + buddy_sz + ';font-size:11px;max-width:225px;">';
 	html += contact['username'] + ' faved <span style="font-style:italic;">' + fave['title'] + '</span>, by ' + fave['ownername'];
 	html += '</div>';
     }
+    */
 
     // date
 
