@@ -201,8 +201,15 @@ info.aaronland.cwf.Photos.prototype.show_faves = function(){
 
 info.aaronland.cwf.Photos.prototype.display_fave = function(fave){
 
+    var photo_sz = (this.args['is_mobile']) ? 'm' : 's';
+    var photo_height = (this.args['is_mobile']) ? '' : '75';
+    var photo_width = (this.args['is_mobile']) ? '' : '75';
+
+    // can be 36 (or 48) if is_goog
+    var buddy_sz = (this.args['is_mobile']) ? '32' : '24';
+
     var photo_page = this.photo_page(fave);
-    var photo_thumb = this.photo_url(fave, 's');
+    var photo_thumb = this.photo_url(fave, photo_sz);
 
     var contact = this.contacts[ fave['faved_by'] ];
     var contact_url = 'http://www.flickr.com/photos/' + contact['nsid'];
@@ -219,24 +226,30 @@ info.aaronland.cwf.Photos.prototype.display_fave = function(fave){
     // wrapper
 
     var html = '';
-    html += '<div style="float:left; margin-right:20px;margin-bottom:15px;">';
+    html += '<div class="fave">';
 
     // buddyicon
 
     html += '<div style="float:left;background-color:#' + short_hex + ';background-image:url(/images/tran.gif);">';
     html += '<a target="_contact" href="' + contact_url + '/faves">';
-    html += '<img src="' + contact_icon + '" height="24" width="24" class="buddyicon" id="' + buddyicon_id + '" />';
+    html += '<img src="' + contact_icon + '" height="' + buddy_sz + '" width="' + buddy_sz + '" class="buddyicon" id="' + buddyicon_id + '" />';
     html += '</a>';
     html += '</div>';
 
     // thumb
 
     html += '<a href="' + photo_page + '" target="' + target + '" title="' + alt + '">';
-    html += '<img src="' + photo_thumb + '" height="75" width="75" style="border:0px solid #' + short_hex + ';" ';
+    html += '<img src="' + photo_thumb + '" height="' + photo_height + '" width="' + photo_width + '" style="border:0px solid #' + short_hex + ';" ';
     html += 'onmouseover="show_who(\'' + buddyicon_id + '\');" onmouseout="hide_who(\'' + buddyicon_id + '\');" ';
     html += 'alt="' + alt + '" ';
     html += '/>';
     html += '</a>';
+
+    if (this.args['is_mobile']){
+	html += '<div style="margin-top:8px;margin-left:' + buddy_sz + ';font-size:11px;max-width:225px;">';
+	html += contact['username'] + ' faved <span style="font-style:italic;">' + fave['title'] + '</span>, by ' + fave['ownername'];
+	html += '</div>';
+    }
 
     // date
 

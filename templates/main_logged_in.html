@@ -10,6 +10,7 @@
   var cwf_args = {
   	'host' : '{{ host_url }}',
   	'contacts_crumb' : '{{ contacts_crumb|escape }}',
+  	'is_mobile' : {% if browser.mobile %}1{% else %}0{% endif %},
   };
 
   window.cwf = new info.aaronland.cwf.Photos(cwf_args);
@@ -21,7 +22,7 @@
 
 </script>
 
-<h2>In the last {{ config.cwf_offset_hours|escape }}  hours <span style="font-weight:100;font-size:small;display:block;color:#ccc;">your contacts have faved these photos</span></h2>
+<h2>In the last {% if browser.mobile %}6{% else %}{{ config.cwf_offset_hours|escape }}{% endif %} hours <span style="font-weight:100;font-size:small;display:block;color:#ccc;">your contacts have faved these photos</span></h2>
 
 <div id="contacts" style="margin-bottom:100px;">
   <div id="faves" style="margin-top:40px;"></div>

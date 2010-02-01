@@ -2,11 +2,15 @@
 
 <div class="margin20" style="margin-left:15%;">
 
-<h2>Contacts Who've Faved</h2>
+<h2>Contacts Who Have Faved</h2>
 
+{% if browser.mobile %}
+<p>This is a simple web application that will display recent photos (like the last 6 hours) that your contacts have favourited.</p>
+{% else %}
 <div style="border:1px dotted #ccc;padding:10px;margin-bottom:30px;max-width:500px;">
 <img src="/images/example.jpg" width="500" height="314" alt="example" />
 </div>
+{% endif %}
 
 <p id="getstarted"><strong><a href="/signin">&rarr; Sign in to get started</a></strong></p>
 

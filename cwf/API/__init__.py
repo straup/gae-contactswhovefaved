@@ -28,6 +28,11 @@ class Dispatch (cwf.Request, FlickrAppAPI) :
 	if not self.ensure_crumb('method=contacts') :
 	    return
 
+        self.check_useragent()
+
+        if self.browser['mobile']:
+            config['cwf_offset_hours'] = config['cwf_offset_hours'] / 2
+
 	refresh = 1800 * config['cwf_offset_hours']
 	now = int(time.time())
 

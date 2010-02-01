@@ -22,9 +22,9 @@
         </head>
         <body>
 
-            <div id="whoami" style="background-color:beige;opacity:.85;padding-left:25px;">
+            <div id="whoami">
 {% if browser.mobile %}
-
+	<strong>cwf</strong>{% if user.username %} / {{ user.username|escape }} / <a href="/signout">signout</a>{% endif %}
 {% else %}
             {% if user.username %}
                 You are logged in with your <a href="http://www.flickr.com/photos/{% ifequal user.path_alias "" %}{{ user.nsid|escape }}{% else %}{{ user.path_alias|escape }}{% endifequal %}/" class="fl_username">{{ user.username|escape }}</a> Flickr account

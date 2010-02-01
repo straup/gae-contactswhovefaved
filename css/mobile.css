@@ -10,7 +10,9 @@
 .fave {
     float:left;
     margin-right:20px;
-    margin-bottom:15px;
+    margin-bottom:30px;
+    // margin-left:40px;
+    min-width:300px;
 }
 
 /* elements */
@@ -24,11 +26,11 @@ body {
        margin-right:0;
        margin-bottom:60px;
        background-image: url('/images/weave.gif');
+       //max-width:340px;
 }
 
 h2 {
      color:#ff0084;
-     font-size:2em;
 }
 
 h3 {
@@ -39,46 +41,40 @@ h3 {
 /* ids */
 
 #example_image {
-                 margin-left:25px;
+                 margin-left:6%;
 }
 
-#example_image img { 
-}
-
-#foot { 
+#foot {
         text-align:right;
         font-size:11px;
         margin-top:10px;
         margin-right:20px;
 }
 
-#getstarted { 
-              font-size:2em;
-              margin-bottom:50px;
+#getstarted {
+              font-size:1.25em;
+              text-align:left;
 }
 
-#getstarted a { 
+#getstarted a {
                 color:#0099cc;
                 text-decoration:none;
 }
 
-#main { 
-        margin-top:0;
+#main {
+        margin:0;
         background-color:white;
         border:1px dotted #ccc;
         padding:30px;
         padding-bottom:60px;
-        padding-left:15%;
-        padding-right:10%;
 }
 
-#main_settings { 
+#main_settings {
                  font-size:11px;
                  margin-top:30px;
-                 margin-left:275px;
 }
 
-#navi { 
+#navi {
         list-style-type: none;
         margin: 0px;
         padding:0px;
@@ -86,7 +82,7 @@ h3 {
         margin-right:20px;
 }
 
-#navi li { 
+#navi li {
            display: inline;
            border:1px dotted #ccc;
            border-bottom:none;
@@ -98,25 +94,25 @@ h3 {
            max-width:585px;
            }
 
-#navi li a { 
+#navi li a {
              text-decoration:none;
              color:darkslategray;
 }
 
-#problem { 
+#problem {
            color:red;
            font-weight:700;
 }
 
-#problem a { 
+#problem a {
              text-decoration:none;
 }
 
-#signin { 
+#signin {
           display:inline;
 }
 
-#signin input[type='submit'] { 
+#signin_input {
           border:1px dotted yellow;
           background-color:#ff0066;
           color:white;
@@ -124,12 +120,12 @@ h3 {
           padding:5px;
 }
 
-#signout { 
-           display:inline;
-           margin-left:15px;
+#signout {
+           margin-bottom:40px;
+           margin-top:30px;
 }
 
-#signout input[type='submit'] { 
+#login_input {
                  border:1px dotted white;
                  background-color:#ff0066;
                  color:white;
@@ -137,11 +133,11 @@ h3 {
                  padding:5px;
 }
 
-#update_settings { 
+#update_settings {
                    font-size:large;
 }
 
-#whoami { 
+#whoami {
           float:right;
           font-size:11px;
           margin-left:20px;
@@ -150,6 +146,7 @@ h3 {
 	  background-color:beige;
 	  opacity:.85;
 	  padding-left:25px;
+	  padding:12px;
 }
 
 /* classes */
@@ -170,61 +167,44 @@ h3 {
 }
 
 .error { 
-         font-size:1.25em;
+         font-weight:700;
          color:red;
-         line-height:25px;
-         margin-top:25px;
-         margin-bottom:25px;
 }
 
-#status {
-            color:#666;
-            font-size:1.6em;
-            margin-top:25px;
-}
-
-.buddy_hex {
+.buddy_hex { 
              margin-bottom:5px;
 }
 
-.margin20 {
-            margin-left:20%;
+.margin20 { 
+
 }
 
-.photos_hex {
+.photos_hex { 
               float:left;
               margin-right:10px;
               margin-bottom:10px;
 }
 
-.slice {
+.slice { 
          min-height:90px;
 }
 
-.slice_label {
-               float:left;
-               width:225px;
-               text-align:right;
+.slice_label { 
                margin-right:50px;
 }
 
-.slice_inthelast {
-                   color:#ccc;
-                   font-weight:700;
-                   margin-bottom:5px;
-                   display:block;
+.slice_inthelast { 
+                   display:none;
 }
 
 .slice_amountoftime { 
                       color:#ff0084;
                       font-weight:700;
-                      font-size:2em;
                       display:block;
+                      margin-bottom:10px;
 }
 
-.slice_contacts {
-                  margin-left:275px;
-}
+.slice_contacts {  }
 
 .slice_noone { 
                font-weight:500;
