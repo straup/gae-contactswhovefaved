@@ -24,6 +24,10 @@ handlers:
 - url: /javascript
   static_dir: javascript
 
+- url: /favicon.ico
+  static_files: images/favicon.ico
+  upload: images/favicon.ico
+
 - url: /images
   static_dir: images
 

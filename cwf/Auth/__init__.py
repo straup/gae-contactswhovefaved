@@ -42,6 +42,9 @@ class Signout (cwf.Request) :
         if not self.check_logged_in(self.min_perms) :
             self.redirect("/")
 
+        logout_crumb = self.generate_crumb(self.user, 'method=logout')
+        self.assign('logout_crumb', logout_crumb)
+
         self.display("signout.html")
         return
 

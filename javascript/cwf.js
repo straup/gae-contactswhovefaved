@@ -245,13 +245,11 @@ info.aaronland.cwf.Photos.prototype.display_fave = function(fave){
     html += '/>';
     html += '</a>';
 
-    /*
     if (this.args['is_mobile']){
-	html += '<div style="margin-top:8px;margin-left:' + buddy_sz + ';font-size:11px;max-width:225px;">';
-	html += contact['username'] + ' faved <span style="font-style:italic;">' + fave['title'] + '</span>, by ' + fave['ownername'];
+	html += '<div style="margin-top:12px;margin-left:' + buddy_sz + ';font-size:11px;max-width:225px;">';
+	html += this.scrub(contact['username']) + ' faved <span style="font-style:italic;">' + this.scrub(fave['title']) + '</span>, by ' + this.scrub(fave['ownername']);
 	html += '</div>';
     }
-    */
 
     // date
 
@@ -306,15 +304,5 @@ info.aaronland.cwf.Photos.prototype.log = function(msg){
 }
 
 info.aaronland.cwf.Photos.prototype.scrub = function(str, allow_whitespace){
-
-    str = str.replace(/^\s+/, '');
-    str = str.replace(/\s+$/, '');
-
-    str = encodeURIComponent(str);
-
-    if (allow_whitespace){
-        str = str.replace(/%20/g, " ");
-    }
-
-    return str;
+    return htmlspecialchars(str);
 };
