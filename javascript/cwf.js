@@ -208,6 +208,11 @@ info.aaronland.cwf.Photos.prototype.display_fave = function(fave){
     // can be 36 (or 48) if is_goog
     var buddy_sz = (this.args['is_mobile']) ? '32' : '24';
 
+    if (this.args['is_ipad']){
+	photo_sz = '';
+	buddy_sz = 48;
+    }
+
     var photo_page = this.photo_page(fave);
     var photo_thumb = this.photo_url(fave, photo_sz);
 

@@ -12,6 +12,7 @@
   	'host' : '{{ host_url }}',
   	'contacts_crumb' : '{{ contacts_crumb|escape }}',
   	'is_mobile' : {% if browser.mobile %}1{% else %}0{% endif %},
+  	'is_ipad' : {% if browser.ipad %}1{% else %}0{% endif %},
   };
 
   window.cwf = new info.aaronland.cwf.Photos(cwf_args);
