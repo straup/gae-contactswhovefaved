@@ -104,7 +104,7 @@ class Dispatch (cwf.Request, FlickrAppAPI) :
 		'auth_token' : self.user.token,
 		'user_id' : user_id,
 		'min_fave_date' : dt,
-		'extras' : 'owner_name',
+		'extras' : 'owner_name,o_dims,url_sq,url_t,url_s,url_m',
 		}
 
 	    rsp = self.api_call(method, args)

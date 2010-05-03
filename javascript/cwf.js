@@ -201,16 +201,22 @@ info.aaronland.cwf.Photos.prototype.show_faves = function(){
 
 info.aaronland.cwf.Photos.prototype.display_fave = function(fave){
 
-    var photo_sz = (this.args['is_mobile']) ? 'm' : 's';
-    var photo_height = (this.args['is_mobile']) ? '' : '75';
-    var photo_width = (this.args['is_mobile']) ? '' : '75';
+    var photo_sz = (this.args['is_mobile']) ? 'm' : 't';
+    var photo_height = (this.args['is_mobile']) ? '' : '';
+    var photo_width = (this.args['is_mobile']) ? '' : '';
 
     // can be 36 (or 48) if is_goog
     var buddy_sz = (this.args['is_mobile']) ? '32' : '24';
 
     if (this.args['is_ipad']){
+
 	photo_sz = '';
 	buddy_sz = 48;
+
+	if ((fave['o_width'] > 1024) || (fave['o_height'] > 1024)){
+	    // photo_sz = 'b';
+	}
+
     }
 
     var photo_page = this.photo_page(fave);
@@ -273,6 +279,13 @@ info.aaronland.cwf.Photos.prototype.photo_page = function(ph){
 };
 
 info.aaronland.cwf.Photos.prototype.photo_url = function(ph, sz){
+
+    /*
+    if (ph['url_' + sz]){
+	return ph['url_' + sz];
+    }
+    */
+
     url = 'http://farm' + ph['farm'] + '.static.flickr.com/' + ph['server'] + '/' + ph['id'] + '_' + ph['secret'];
 
     if (sz){
