@@ -31,5 +31,9 @@ handlers:
 - url: /images
   static_dir: images
 
+- url: /apple-touch-icon.png
+  static_files: images/apple-touch-icon.png
+  upload: images/apple-touch-icon.png
+
 - url: .*
   script: main.py
